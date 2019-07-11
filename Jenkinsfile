@@ -1,6 +1,12 @@
 pipeline{
         agent any
         stages{
+		stage('Invest'){
+			steps{
+				sh "pwd"
+				sh "ls -alrt"
+			}
+		}
                 stage('Build Client and Server'){
                         steps{
                                 sh "docker-compose build --no-cache"
