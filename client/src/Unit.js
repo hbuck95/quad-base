@@ -13,7 +13,7 @@ class Unit extends Component {
     }
   
     makeRequest = (e) => {
-        axios.get("/server/getAllAccounts").then(response => {
+        axios.get("server/getAllAccounts").then(response => {
 
             console.log(response.data);
             this.setState({
