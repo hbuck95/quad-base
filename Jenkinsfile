@@ -1,14 +1,9 @@
 pipeline{
         agent any
         stages{
-                stage('Build Server'){
+                stage('Build Client and Server'){
                         steps{
-                                sh "docker build ./server -t localhost:5000/server:latest"
-                        }
-                }
-                stage('Build Client'){
-                        steps{
-                                sh "docker build ./client -t localhost:5000/client:latest"
+                                sh "docker-compose build --no-cache"
                         }
                 }
 		stage('Push Server'){

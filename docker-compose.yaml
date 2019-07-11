@@ -19,9 +19,7 @@ services:
         build:
             context: ./server   
         ports:
-            - target: 8080
-              published: 666
-              protocol: tcp
+            - "666:8080"          
         depends_on:
             - mongo
     client:
@@ -36,7 +34,6 @@ services:
             - REACT_APP_SERVICE_HOST=${REACT_APP_SERVICE_HOST}
     mongo:
         image: localhost:5000/mongo:latest
-        container_name: mongo
         ports:
             - target: 27017
               published: 27017
