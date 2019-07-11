@@ -20,6 +20,7 @@ services:
             context: ./server   
         ports:
             - target: 8080
+              published: 666
               protocol: tcp
         depends_on:
             - mongo
