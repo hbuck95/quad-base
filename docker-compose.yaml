@@ -7,10 +7,8 @@ services:
               published: 80
               protocol: tcp
         volumes:
-            - jenkins_nginx_vol:/var/jenkins_home/workspace/quad-base/
+            - jenkins_nginx_vol/nginx:/etc/nginx/
             - type: bind
-              source: ./nginx/nginx.conf
-              target: /etc/nginx/nginx.conf
         depends_on:
             - server
             - client        
