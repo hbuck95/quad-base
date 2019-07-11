@@ -7,7 +7,9 @@ services:
               published: 80
               protocol: tcp
         volumes:
-            - jenkins_nginx_vol:/etc/nginx/
+            - type: bind
+              source: /var/jenkins_home/workspace/quad-base/nginx/nginx.conf
+              target: /etc/nginx/nginx.conf
         depends_on:
             - server
             - client        
@@ -48,5 +50,4 @@ services:
             - ./data:/data
         command:
             - "mongoimport --host mongo --port 27017 --db test --mode upsert --type json --file /data/account.json --jsonArray"
-volumes:
-    jenkins_nginx_vol:
+
